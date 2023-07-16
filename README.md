@@ -11,12 +11,19 @@
 ```
 !pip install -r requirements.txt
 ```
+alternatively, using mamba
+```
+mamba update -n base mamba
+mamba create -n yolocvVE pip -c conda-forge
+mamba activate yolocvVE
+pip install -r requirements.txt
+```
+
 
 * Command to run the code:
 
 ```
-!python yolov5_onnxinfer.py  --image ./bus.jpg  --weights ./yolov5s.onnx --conf_thres 0.7 \
-      --iou_thres 0.5 --imgs 640 --classes ./classes.txt
+python yolov5_onnxinfer.py  --image ./bus.jpg  --weights ./yolov5s.onnx --conf_thres 0.7 --iou_thres 0.5 --imgs 640 --classes ./classes.txt
 ```
 * Arguments Details:
 1. Input image
@@ -29,11 +36,8 @@
 **Opencv DNN**
 
 * Command to run code:
-
 ```
-!python Yolov5_infer_opencv.py --image ./bus.jpg --weights ./yolov5s.onnx \
-        --classes ./classes.txt --imgs_w 640 --imgs_h 640 \
-        --conf_thres 0.7 --score_thres 0.5 --nms_thres 0.5
+python Yolov5_infer_opencv.py --image ./bus.jpg --weights ./yolov5s.onnx --classes ./classes.txt --imgs_w 640 --imgs_h 640 --conf_thres 0.7 --score_thres 0.5 --nms_thres 0.5
 ```
 * Arguments Details:
 1. Input image
@@ -46,20 +50,12 @@
 8. Classes.txt file
 
 * Comparison of inference time:
-
 For image 'bus.jpg', inference time of ONNXRuntime and opencv DNN module are:
 
-  1. opencv DNN: 0.29987263679504395
- 
- 2. ONNXRuntime: 0.13161110877990723
+ 	1. ONNXRuntime: 0.16300702095031738
+	2. opencv DNN:  0.4327085018157959 
 
 **Streamlit yolov5 Inference App**
-
-* Install streamlit.
-
-```
-!pip install streamlit
-```
 
 * Run stramlit code.
 

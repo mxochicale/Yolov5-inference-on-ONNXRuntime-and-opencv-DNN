@@ -47,9 +47,9 @@ class ort_v5:
         print('yolov5 ONNXRuntime Inference Time:', t2-t1)
         img=self.result(image_or,ratio, dwdh, out)
         cv2.imwrite('result.jpg', img)
-        # print('result', img.shape)
-        # cv2.imshow('result',img)
-        # cv2.waitKey(0)
+        print('result', img.shape)
+        #cv2.imshow('result',img)
+        #cv2.waitKey(0)
         return out
  
     def box_iou(self,box1, box2, eps=1e-7):
